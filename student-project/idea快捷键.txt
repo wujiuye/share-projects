@@ -1,0 +1,2 @@
+查找类：
+command + option + shitf + n

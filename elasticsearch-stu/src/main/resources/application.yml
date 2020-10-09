@@ -1,0 +1,6 @@
+# 要求ES 7.x版本
+es:
+  host: 172.18.22.245
+  port: 9400
+  scheme: http
+

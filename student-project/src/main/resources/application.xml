@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="log1" class="com.wujiuye.springaop.Log"/>
+    <bean id="log2" class="com.wujiuye.springaop.Log"/>
+    <bean id="userService" class="com.wujiuye.springaop.UserServiceImpl"/>
+    <bean id="userServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="interceptorNames">
+            <list>
+                <value>log1</value>
+                <!-- 模拟切入多个通知 -->
+                <value>log2</value>
+            </list>
+        </property>
+        <!--
+            被代理的目标对象
+            如果目标对象实现了接口，那么就使用jdk动态代理，否则使用cglib实现动态代理
+            对于基于jdk动态代理，只会切入所实现的所有接口中定义的方法
+        -->
+        <property name="targetName" value="userService"/>
+    </bean>
+
+</beans>

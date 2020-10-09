@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sck-demo-provider-config
+  namespace: default
+data:
+  application-dev.yml: |-
+    sck-demo:
+      message: for dev config map

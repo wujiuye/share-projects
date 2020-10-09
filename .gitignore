@@ -1,0 +1,10 @@
+.DS_Store
+target
+.idea
+.git
+grade
+grades
+bradley.bat
+build
+*.class
+*.iml

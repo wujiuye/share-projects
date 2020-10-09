@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  sck-demo-provider:
+    build: ./sck-demo-provider
+    image: wujiuye/sck-demo-provider
+    environment:
+      - SPRING_PROFILES_ACTIVE
+      - SERVER_PORT
+
+  sck-demo-consumer:
+    build: ./sck-demo-consumer
+    image: wujiuye/sck-demo-consumer
+    environment:
+      - SPRING_PROFILES_ACTIVE
+      - SERVER_PORT

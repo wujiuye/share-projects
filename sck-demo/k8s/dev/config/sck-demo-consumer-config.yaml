@@ -1,0 +1,11 @@
+# 【配置中心】ycpay-console服务的配置文件
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sck-demo-consumer-config
+  namespace: default
+data:
+  application-dev.yml: |-
+    # 去掉本地测试的配置
+    fegin-client:
+      sck-demo-provider-url: ~

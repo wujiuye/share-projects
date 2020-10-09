@@ -1,0 +1,6 @@
+# 创建ServiceAccount
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pod-configmap-sa
+  namespace: default

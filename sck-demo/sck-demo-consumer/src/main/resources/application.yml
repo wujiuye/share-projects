@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+server:
+  port: ${SERVER_PORT:8080}
+management:
+  endpoint:
+    restart:
+      enabled: true
+    health:
+      enabled: true
+    info:
+      enabled: true
+
+## openfeign整合sentinel
+feign:
+  sentinel:
+    enabled: true

@@ -1,0 +1,28 @@
+server:
+  port: 9000
+
+fegin-client:
+  sck-demo-provider-url: ~
+
+#sck-demo-provider:
+#  ribbon:
+#    MaxAutoRetries: 10
+#    MaxAutoRetriesNextServer: 10
+#    ConnectTimeout: 15000
+
+## 熔断降级配置
+feign:
+  sentinel:
+    degrade:
+      rules:
+        - resource: POST:http://sck-demo-provider/v1/services
+          count: 10
+          degradeGrad: 2
+          timeWindowSecond: 1
+          minRequestAmount: 5
+        - resource: POST:http://localhost:8080/v1/services
+          count: 10
+          degradeGrad: 2
+          timeWindowSecond: 1
+          minRequestAmount: 5
+    enabled: true

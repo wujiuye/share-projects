@@ -1,0 +1,11 @@
+# 创建角色（pod级别）
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-configmap-read-role
+  namespace: default
+# 注册中心需要services的访问权限
+rules:
+  - apiGroups: [""]
+    resources: ["pods","configmaps","endpoints","services"]
+    verbs: ["get", "watch", "list"]

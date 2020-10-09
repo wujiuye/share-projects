@@ -1,0 +1,2 @@
+推荐一篇介绍方法栈桢的文章：https://www.cnblogs.com/coding-way/p/6600647.html
+asm在线文档：http://tool.oschina.net/apidocs/apidoc?api=asm

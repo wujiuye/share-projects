@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sck-demo-consumer
+  namespace: default
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sck-demo-consumer
+  template:
+    metadata:
+      labels:
+        app: sck-demo-consumer
+        env: dev
+    spec:
+      containers:
+        - name: sck-demo-consumer
+          image: wujiuye/sck-demo-consumer:v1.0.0
+          # 镜像拉去策略：Always（总是拉取）、IfNotPresent（默认值,本地有则使用本地镜像,不拉取）、Never（只使用本地镜像，从不拉取）
+          imagePullPolicy: Never
+          ports:
+            - name: http-port
+              containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: sck-demo-common-config
+          resources:
+            limits:
+              cpu: 300m
+              memory: 1024Mi
+            requests:
+              cpu: 200m
+              memory: 512Mi
+      serviceAccountName: pod-configmap-sa
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sck-demo-consumer
+  namespace: default
+spec:
+  selector:
+    app: sck-demo-consumer
+    env: dev
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort
