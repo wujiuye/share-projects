@@ -69,7 +69,7 @@ public class R2dbcStuMain {
                 .bind("name", "Joe")
                 .bind("age", 34)
                 .fetch().rowsUpdated()
-                .then(client.execute("INSERT INTO contacts (id, name) VALUES(:id, :name)")
+                .then(client.execute("INSERT INTO person (id, name) VALUES(:id, :name)")
                         .bind("id", "joe")
                         .bind("name", "Joe")
                         .fetch().rowsUpdated())
