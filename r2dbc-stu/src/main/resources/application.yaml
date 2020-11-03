@@ -1,11 +1,11 @@
-## r2dbc
-spring:
-  r2dbc:
-    url: r2dbc:mysql://localhost:3306/r2dbc_stu?useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password:
-    pool:
-      enabled: true
-      max-size: 10
-      initial-size: 10
-      validation-query: select 1
+### r2dbc
+#spring:
+#  r2dbc:
+#    url: r2dbc:mysql://localhost:3306/r2dbc_stu?useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password:
+#    pool:
+#      enabled: true
+#      max-size: 10
+#      initial-size: 10
+#      validation-query: select 1
